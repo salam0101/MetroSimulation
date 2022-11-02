@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/">
+    <file>views/components/ui/image/login.png</file>
+  </qresource>
+</RCC>

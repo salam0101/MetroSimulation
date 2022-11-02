@@ -1,0 +1,221 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface INotifier
+{
+sendNotification(self, notificationName, body=None, noteType=None)
+}
+interface  ICommand
+{
+execute(self, notification)
+
+}
+interface IController
+{
+ registerCommand(self, notificationName, commandClassRef)
+
+
+    executeCommand(self, notification)
+
+
+    removeCommand(self, notificationName)
+
+
+    hasCommand(self, notificationName)
+}
+
+interface IFacade
+{
+notifyObservers(self,note):
+registerProxy(self, proxy):
+retrieveProxy(self, proxyName):
+removeProxy(self, proxyName):
+hasProxy(self, proxyName):
+registerCommand(self, noteName, commandClassRef):
+removeCommand(self, notificationName):
+hasCommand(self, notificationName):
+hasMediator(self, mediatorName):
+registerMediator(self, mediator):
+retrieveMediator(self, mediatorName):
+removeMediator(self, mediatorName):
+}
+interface IModel
+{
+registerProxy(self, proxy):
+retrieveProxy(self, proxyName):
+removeProxy(self, proxyName):
+hasProxy(self, proxyName):
+}
+interface INotification
+{
+}
+interface IObserver
+{
+setNotifyMethod(self, notifyMethod):
+setNotifyContext(self, notifyContext):
+notifyObserver(self, notification):
+compareNotifyContext(self, obj):
+
+}
+interface IProxy
+{
+}
+interface IView
+{
+registerObserver(self, notificationName, observer):
+notifyObservers(self, notification):
+removeObserver(self, notificationName, notifyContext):
+registerMediator(self, mediator):
+retrieveMediator(self, mediatorName):
+removeMediator(self, mediatorName):
+hasMediator(self, mediatorName):
+
+}
+interface IMediator
+{
+}
+abstract class Observer
+{
+notifyObserver(self, notification)
+}
+abstract class Notifier
+{
+sendNotification(self, notificationName, body=None, noteType=None):
+}
+abstract class Notification
+{
+}
+abstract class Facade
+{
+}
+abstract class MacroCommand
+{
+execute(self, notification):
+}
+abstract class SimpleCommand
+{
+execute(self, notification):
+}
+abstract class Mediator
+{
+}
+abstract class Proxy
+{
+}
+abstract class Controller
+{
+}
+abstract class View
+abstract class Model
+class PrepModelCommand
+{
+}
+class PrepViewCommand
+{
+}
+class StartUpCommand
+{
+}
+class  LoginProxy
+{
+}
+class StationProxy
+{
+}
+interface State
+{
+}
+interface Traffic
+{
+}
+class RunningState
+{
+}
+class OpenningState
+{
+}
+class CloseingState
+{
+}
+class Metro
+{
+}
+class Line
+{
+}
+class Station
+{
+}
+class ApplicationFacade
+{
+}
+class LoginMediator
+{
+}
+class MainWindowMediator
+{
+}
+class TicketMediator
+{
+}
+class TicketWindow
+{
+}
+class mainWindow
+{
+}
+class LoginWidget
+{
+}
+INotifier<|--ICommand
+INotifier<|--IFacade
+INotifier<|--IProxy
+INotifier<|--Notifier
+IObserver<|--Observer
+INotification<|--Notification
+IFacade<|--Facade
+INotifier<|--MacroCommand
+Notifier<|--MacroCommand
+ICommand<|--MacroCommand
+INotifier<|--SimpleCommand
+Notifier<|--SimpleCommand
+ICommand<|--SimpleCommand
+Notifier<|--Mediator
+IMediator<|--Mediator
+INotifier<|--Mediator
+INotifier<|--Proxy
+Notifier<|--Proxy
+IProxy<|--Proxy
+IController<|--Controller
+IModel<|--Model
+IView<|--View
+SimpleCommand<|--PrepModelCommand
+SimpleCommand<|--PrepViewCommand
+MacroCommand<|--StartUpCommand
+Proxy<|--StationProxy
+Proxy<|--LoginProxy
+State<|--OpenningState
+State<|--RunningState
+State<|--CloseingState
+Traffic<|--Metro
+Traffic<|-State
+StationProxy<|-Traffic
+StationProxy<|-Line
+StationProxy<|-Station
+Facade<|--ApplicationFacade
+Mediator<|--MainWindowMediator
+Mediator<|--LoginMediator
+Mediator<|--TicketMediator
+View<|-Mediator
+Controller<|-MacroCommand
+Controller<|-SimpleCommand
+Model<|-Proxy
+Facade<|-View
+Facade<|-Model
+Facade<|-Controller
+
+MainWindowMediator<|-mainWindow
+TicketMediator<|-TicketWindow
+LoginMediator<|-LoginWidget
+@enduml
