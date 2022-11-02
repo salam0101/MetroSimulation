@@ -7,4 +7,4 @@
 #####代理模式：Proxy对业务处理和数据访问提供了隔离控制，可以灵活地制定业务逻辑之外的操作。
 #####命令模式：Command使用统一的execute命令和INotification通知来隔离命令调用者和命令执行者。
 #####状态模式:状态模式把地铁改变状态的对象行为包装在不同的状态对象里，让地铁在其内部状态改变的时候，其行为也随之改变
-![项目UML图](metro.png "项目UML图")
+![项目UML图](https://github.com/salam0101/MetroSimulation/blob/main/metro.png "项目UML图")
